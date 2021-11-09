@@ -10,9 +10,9 @@ const Canvas = () => {
     useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
-
     const imageData = context.createImageData(w, h);
     
+    //Create a 1D array of RGB color combinations
     const pixelArray = [];
     for(let r=1, g=1, b=1; r <= 32; r++){
 
@@ -35,6 +35,7 @@ const Canvas = () => {
 
     console.table(pixelArray);
 
+    //Assign RGB colors to the image dataset 
     for(let index=0, a=0; index <  imageData.data.length; index+=4, a++){
         imageData.data[index + 0] = pixelArray[a].R;
         imageData.data[index + 1] = pixelArray[a].G;
@@ -44,12 +45,11 @@ const Canvas = () => {
 
     context.putImageData(imageData, 0, 0);
 
-    
   }, [])
 
     return (
         <div>
-            <canvas width={256} height={128} ref={canvasRef} />
+            <canvas width={w} height={h} ref={canvasRef} />
         </div>
     )
 }
