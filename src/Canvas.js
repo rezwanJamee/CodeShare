@@ -33,8 +33,6 @@ const Canvas = () => {
         } 
     }
 
-    console.table(pixelArray);
-
     //Assign RGB colors to the image dataset 
     for(let index=0, a=0; index <  imageData.data.length; index+=4, a++){
         imageData.data[index + 0] = pixelArray[a].R;
